@@ -2,7 +2,9 @@
 <p>This To-Do web app saves todo tasks of user in localstorage with functionalities for marking a todo task as completed, editing a todo task and also deleting a todo task. It uses localstorage as the database to store todo tasks, Nextjs for building the user interface, and Node.js for server-side runtime environment. The app provides a seamless experience for users to manage todo tasks.</p>
 
 
-<!--  -->
+
+https://github.com/user-attachments/assets/cbd8a06c-68e8-497b-a619-17f1a2a5a85d
+
 
 
 <h3>Running the Project Locally</h3>
