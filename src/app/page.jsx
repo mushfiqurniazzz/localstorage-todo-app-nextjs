@@ -1,4 +1,5 @@
-import ToDo from "@/components/ToDo";
+import dynamic from "next/dynamic";
+const ToDo = dynamic(() => import("@/components/ToDo"), { ssr: false });
 import "/public/styles/Page.css";
 import { Toaster } from "sonner";
 export default function Home() {
