@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { toast } from "sonner"; 
+import { toast } from "sonner";
 
 const ToDo = () => {
   const GetToDo = () => {
@@ -13,8 +13,8 @@ const ToDo = () => {
 
   const [task, setTask] = useState("");
   const [todos, setTodos] = useState(GetToDo());
-  const [editIndex, setEditIndex] = useState(null); 
-  const [editTask, setEditTask] = useState(""); 
+  const [editIndex, setEditIndex] = useState(null);
+  const [editTask, setEditTask] = useState("");
 
   const AddToDo = (task) => {
     if (!task || task === "") {
@@ -61,54 +61,70 @@ const ToDo = () => {
 
   return (
     <>
-      <input
-        id="inputfield"
-        type="text"
-        placeholder="Ex - 'Feed the cats'"
-        value={task}
-        onChange={(e) => setTask(e.target.value)}
-      />
-      <button
-        id="addtodobutton"
-        onClick={() => AddToDo(task)} 
-      >
-        Add To-Do
-      </button>
+      <div className="todobody">
+        <div>
+          <input
+            id="inputfield"
+            type="text"
+            placeholder="Ex - 'Feed the cats'"
+            value={task}
+            onChange={(e) => setTask(e.target.value)}
+          />
+          <button id="addtodobutton" onClick={() => AddToDo(task)}>
+            Add To-Do
+          </button>
 
-      <ul>
-        {todos.map((todo, index) => (
-          <li key={index}>
-            {editIndex === index ? (
-              <input
-                type="text"
-                value={editTask}
-                onChange={(e) => setEditTask(e.target.value)}
-              />
-            ) : (
-              <span
-                style={{
-                  textDecoration: todo.completed ? "line-through" : "none",
-                  cursor: "pointer",
-                }}
-                onClick={() => EditToDo(index)} 
-              >
-                {todo.task}
-              </span>
-            )}
-            {editIndex === index ? (
-              <>
-                <button onClick={saveEdit}>Save</button>
-                <button onClick={() => setEditIndex(null)}>Cancel</button>
-              </>
-            ) : (
-              <>
-                <button onClick={() => startEdit(index)}>Edit</button>
-                <button onClick={() => DeleteToDo(index)}>Delete</button>
-              </>
-            )}
-          </li>
-        ))}
-      </ul>
+          {todos.length === 0 ? (
+            <div className="notodosfound">
+              <h2>No Task in Queue</h2>
+            </div>
+          ) : (
+            <ul>
+              {todos.map((todo, index) => (
+                <li key={index}>
+                  {editIndex === index ? (
+                    <input
+                      id="editinput"
+                      type="text"
+                      value={editTask}
+                      onChange={(e) => setEditTask(e.target.value)}
+                    />
+                  ) : (
+                    <span
+                      style={{
+                        textDecoration: todo.completed
+                          ? "line-through"
+                          : "none",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => EditToDo(index)}
+                    >
+                      {todo.task}
+                    </span>
+                  )}
+                  <div className="button-group">
+                    {editIndex === index ? (
+                      <>
+                        <button onClick={saveEdit}>Save</button>
+                        <button onClick={() => setEditIndex(null)}>
+                          Cancel
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <button onClick={() => startEdit(index)}>Edit</button>
+                        <button onClick={() => DeleteToDo(index)}>
+                          Delete
+                        </button>
+                      </>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
     </>
   );
 };
