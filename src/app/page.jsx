@@ -1,5 +1,5 @@
 import ToDo from "@/components/ToDo";
-import "/home/niaz/Documents/localstorage-todo-app-nextjs/public/styles/Page.css";
+import "/public/styles/Page.css";
 import { Toaster } from "sonner";
 export default function Home() {
   return (
