@@ -1,3 +1,10 @@
+body {
+  background-image: url(../imgs/30010858_7629398.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
 .todobody {
   display: grid;
   place-items: center;
@@ -46,24 +53,25 @@ ul {
   width: 100%;
   max-width: 400px;
 }
-li .button-group {
+.li .button-group {
   display: flex;
-  gap: 0.5rem; 
+  gap: 0.5rem;
 }
-li {
+.li {
   padding: 0.8rem;
   border-bottom: 1px solid #eee;
+  background-color: #cccccc4f;
   display: flex;
   justify-content: space-between;
   height: 2rem;
   align-items: center;
 }
 
-li:last-child {
+.li:last-child {
   border-bottom: none;
 }
 
-li button {
+.li button {
   padding: 0.4rem 0.8rem;
   border: none;
   background-color: #dc3545;
@@ -73,7 +81,7 @@ li button {
   transition: background-color 0.3s ease;
 }
 
-li button:hover {
+.li button:hover {
   background-color: #c82333;
 }
 

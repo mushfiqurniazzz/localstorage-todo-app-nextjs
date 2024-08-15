@@ -81,7 +81,7 @@ const ToDo = () => {
           ) : (
             <ul>
               {todos.map((todo, index) => (
-                <li key={index}>
+                <li key={index} className="li">
                   {editIndex === index ? (
                     <input
                       id="editinput"
